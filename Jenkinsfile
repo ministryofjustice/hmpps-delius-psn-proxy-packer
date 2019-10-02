@@ -18,7 +18,7 @@ def build_image(filename) {
         -e BRANCH_NAME \
         -v `pwd`:/home/tools/data \
         mojdigitalstudio/hmpps-packer-builder \
-        bash -c packer build ''' + filename + "'"
+        bash -c 'packer build ''' + filename + "'"
         
     }
 }
