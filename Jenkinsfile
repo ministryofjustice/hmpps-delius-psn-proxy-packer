@@ -6,7 +6,7 @@ def verify_image(filename) {
         -e BRANCH_NAME \
         -v `pwd`:/home/tools/data \
         mojdigitalstudio/hmpps-packer-builder \
-        bash -c 'ansible-galaxy install -r ansible/requirements.yml; USER=`whoami` packer validate ''' + filename + "'"
+        bash -c 'USER=`whoami` packer validate ''' + filename + "'"
     }
 }
 
