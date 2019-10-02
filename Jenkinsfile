@@ -4,6 +4,7 @@ def verify_image(filename) {
         #!/usr/env/bin bash
         docker run --rm \
         -e BRANCH_NAME \
+        -e TARGET_ENV \
         -v `pwd`:/home/tools/data \
         mojdigitalstudio/hmpps-packer-builder \
         bash -c 'USER=`whoami` packer validate ''' + filename + "'"
@@ -16,6 +17,7 @@ def build_image(filename) {
         #!/usr/env/bin bash
         docker run --rm \
         -e BRANCH_NAME \
+        -e TARGET_ENV \
         -v `pwd`:/home/tools/data \
         mojdigitalstudio/hmpps-packer-builder \
         bash -c 'packer build ''' + filename + "'"
