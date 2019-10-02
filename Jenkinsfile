@@ -18,7 +18,7 @@ def build_image(filename) {
         -e BRANCH_NAME \
         -v `pwd`:/home/tools/data \
         mojdigitalstudio/hmpps-packer-builder \
-        PACKER_VERSION=`packer --version` USER=`whoami` packer build ${filename}'
+        bash -c packer build ${filename}'
         rm ./meta/${filename}_meta.json
         """
     }
