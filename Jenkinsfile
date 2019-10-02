@@ -6,21 +6,20 @@ def verify_image(filename) {
         -e BRANCH_NAME \
         -v `pwd`:/home/tools/data \
         mojdigitalstudio/hmpps-packer-builder \
-        bash -c 'USER=`whoami` packer validate ''' + filename + "'"
+        bash -c 'USER=`whoami` packer validate ''' + filename 
     }
 }
 
 def build_image(filename) {
     wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
-        sh """
+        sh '''
         #!/usr/env/bin bash
         docker run --rm \
         -e BRANCH_NAME \
         -v `pwd`:/home/tools/data \
         mojdigitalstudio/hmpps-packer-builder \
-        bash -c packer build ${filename}'
-        rm ./meta/${filename}_meta.json
-        """
+        bash -c packer build ''' + filename 
+        
     }
 }
 
