@@ -14,7 +14,6 @@ def build_image(filename) {
     wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
         sh """
         #!/usr/env/bin bash
-        set +x
         docker run --rm \
         -e BRANCH_NAME \
         -v `pwd`:/home/tools/data \
