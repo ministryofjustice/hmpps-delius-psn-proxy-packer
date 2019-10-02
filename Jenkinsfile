@@ -60,7 +60,7 @@ pipeline {
 
         stage('Build PSN Proxy AMI') {
             parallel {
-                stage('Build Centos Alfresco') { steps { script {build_image('psn_proxy.json')}}}
+                stage('Build CentOS PSN Proxy AMI') { steps { script {build_image('psn_proxy.json')}}}
             }
         }
     }
